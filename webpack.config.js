@@ -10,11 +10,16 @@ module.exports = {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'app.bundle.js',
 	},
+
+	devServer: {
+		contentBase: path.join(__dirname, 'build'),
+	},
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.css$/,
